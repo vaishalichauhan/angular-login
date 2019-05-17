@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
@@ -22,12 +22,17 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatOptionModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatTableModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer/footer.component' ;
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { EditUserComponent } from './editUser/edit-user/edit-user.component';
+import { ManageRoleComponent } from './manageRole/manage-role/manage-role.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LoginComponent,
     HeaderComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    ManageUserComponent,
+    EditUserComponent,
+    ManageRoleComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatOptionModule,
     MatSlideToggleModule,
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatTableModule,
+    MatCheckboxModule
+
   ],
   providers: [
     {

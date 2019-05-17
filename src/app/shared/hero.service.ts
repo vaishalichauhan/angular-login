@@ -1,11 +1,13 @@
-import { TokenStorageService } from './token-storage.service';
-import { UserDetail } from './model/user-detail';
-import { User } from './User.model';
+
+import { TokenStorageService } from '../token-storage.service';
+import { UserDetail } from '../model/user-detail';
+import { User } from '../User.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SessionStore } from '../session/sessionstore';
 
 
 const TOKEN_KEY = 'AuthToken';
@@ -18,7 +20,7 @@ export class HeroService {
 
   API_URL = 'http://localhost:8081/signin';
 
-  constructor(private http: HttpClient, private router: Router, private token: TokenStorageService) {}
+  constructor(private http: HttpClient, private router: Router, private token: TokenStorageService, private authStore: SessionStore) {}
 
   authenticateUser(user: User) {
     const basicAuthHeaderString = 'Basic ' + window.btoa(user.usernameOrEmail + ':' + user.password);
@@ -53,6 +55,32 @@ export class HeroService {
   logout() {
       window.sessionStorage.removeItem(TOKEN_KEY);
   }
+  isLoggedIn() {
+    if (window.sessionStorage.getItem(TOKEN_KEY)) {
+      return true;
+    } else {
+     return false;
+    }
+  }
+
+  getAllUsersList() {
+    const url = 'http://localhost:8081/getAllUsers';
+    return this.http.get<UserResponse[]>(url);
+  }
+  deleteUser(userId) {
+    const url = 'http://localhost:8081/deleteUser/' + userId;
+    return this.http.delete<UserResponse[]>(url);
+  }
+
+  getUserById(userId) {
+    const url = 'http://localhost:8081/getUser/' + userId;
+    return this.http.get<UserResponse>(url);
+  }
+  getRolesForUser(userId) {
+    const url = 'http://localhost:8081/getRolesForUser/' + userId;
+    return this.http.get<Role[]>(url);
+
+  }
 
 }
 export class TokenResponse {
@@ -63,6 +91,10 @@ export class UserResponse {
   id: number;
   firstName: string;
   lastName: string;
-  userName: string;
+  username: string;
   password: string;
+}
+export class Role {
+  roleId: number;
+  name: string;
 }

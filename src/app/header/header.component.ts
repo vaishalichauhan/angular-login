@@ -1,4 +1,4 @@
-import { HeroService, UserResponse } from './../hero.service';
+import { HeroService, UserResponse } from '../shared/hero.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
@@ -17,6 +17,10 @@ import {
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('movieSearchInput') movieSearchInput: ElementRef;
+
+  @ViewChild('title')
+  title: ElementRef;
+
   users: UserResponse[] = [];
   constructor(private heroService: HeroService, private router: Router ) { }
   ngOnInit() {
@@ -42,8 +46,20 @@ export class HeaderComponent implements OnInit {
   logout() {
     if (confirm('Are you sure to log out?')) {
       this.heroService.logout();
-      this.router.navigate(['\login']);
+      this.router.navigate(['/login']);
     }
+  }
+
+  addUser() {
+    this.router.navigate(['/register']);
+  }
+
+  manageUsers() {
+    this.router.navigate(['/manageUser']);
+  }
+
+  manageRoles() {
+    this.router.navigate(['/roles']);
   }
 
   }

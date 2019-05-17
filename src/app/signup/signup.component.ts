@@ -1,4 +1,4 @@
-import { HeroService } from './../hero.service';
+import { HeroService } from '../shared/hero.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -32,5 +32,8 @@ export class SignupComponent implements OnInit {
 
 
 
+  }
+  goToMain(){
+    this.route.navigate(['/header']);
   }
 }

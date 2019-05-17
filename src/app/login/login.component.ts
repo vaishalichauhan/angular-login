@@ -1,6 +1,6 @@
 import { single } from './data';
 import { TokenStorageService } from './../token-storage.service';
-import { HeroService } from './../hero.service';
+import { HeroService } from '../shared/hero.service';
 import { User } from './../User.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';

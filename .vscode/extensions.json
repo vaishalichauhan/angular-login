@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "christian-kohler.path-intellisense",
+    "CoenraadS.bracket-pair-colorizer",
+    "davidbabel.vscode-simpler-icons",
+    "EditorConfig.EditorConfig",
+    "eg2.tslint",
+    "infinity1207.angular2-switcher",
+    "johnpapa.Angular2",
+    "MariusAlchimavicius.json-to-ts",
+    "msjsdiag.debugger-for-chrome",
+    "shinnn.stylelint",
+    "esbenp.prettier-vscode",
+    "dbaeumer.jshint",
+    "rebornix.project-snippets"
+  ]
+}

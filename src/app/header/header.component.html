@@ -1,21 +1,3 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item nav-username">
-        <span class="username">Welcome Vaishali</span>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="btn btn-default btn-sm username" (click)="logout()">Log out</button>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <input type="text" #movieSearchInput class="form-control"
 placeholder="Type any user name" />
 <div>
@@ -27,3 +9,21 @@ placeholder="Type any user name" />
   </table>
 
 </div>
+
+<button type="button"
+(click)="addUser()"
+class="btn btn-primary pull-right"
+style="margin-left:12px;"><i class="fa fa-plus"></i> Add User
+</button>
+
+<button type="button"
+(click)="manageUsers()"
+class="btn btn-primary pull-right"
+style="margin-left:20px;"><i class="fa fa-plus"></i> Manage Users
+</button>
+
+<button type="button"
+(click)="manageRoles()"
+class="btn btn-primary pull-right"
+style="margin-left:20px;"><i class="fa fa-plus"></i> Manage Roles
+</button>

@@ -18,7 +18,7 @@
                </mat-form-field>
                <mat-form-field class="full-width">
                   <mat-label>Password</mat-label>
-                  <input formControlName="password" matInput  placeholder="Password" name="password">
+                  <input formControlName="password" type="password" matInput  placeholder="Password" name="password">
                   <mat-error *ngIf="this.myForm.controls['username'].invalid">{{getErrorMessage()}}</mat-error>
                </mat-form-field>
                <mat-card-actions>
@@ -34,17 +34,3 @@
 </div>
       </div>
       </div>
-<ngx-charts-bar-vertical
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="single"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      (select)="onSelect($event)">
-    </ngx-charts-bar-vertical>
